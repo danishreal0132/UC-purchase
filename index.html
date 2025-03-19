@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG UC Purchase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(to right, black, brown, yellow), url('pubg-player-guns.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #e68900;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+        }
+        .input-field {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="purchase.html">Buy UC</a>
+        <a href="subscription.html">PUBG Subscription</a>
+        <a href="royalpass.html">PUBG Royal Pass</a>
+    </div>
+    
+    <div class="container">
+        <h2>Login or Sign Up</h2>
+        <form>
+            <input type="text" id="username" class="input-field" placeholder="Username" required><br>
+            <input type="password" id="password" class="input-field" placeholder="Password" required><br>
+            <button class="btn" type="button" onclick="loginUser()">Login</button>
+        </form>
+        <p id="loginMessage"></p>
+    </div>
+    
+    <div class="container">
+        <h2>Enter PUBG UID</h2>
+        <input type="text" id="pubgUID" class="input-field" placeholder="Enter your PUBG UID" required>
+    </div>
+    
+    <div class="container">
+        <h2>PUBG Royal Pass - 2500 PKR</h2>
+        <p>Unlock exclusive rewards with the PUBG Royal Pass.</p>
+        <button class="btn" onclick="buyRoyalPass()">Get Royal Pass</button>
+        <p id="royalPassMessage"></p>
+    </div>
+    
+    <div class="container">
+        <h2>Buy PUBG UC - 5000 PKR</h2>
+        <p>Get 1000 UC for your PUBG Mobile account.</p>
+        <button class="btn" onclick="purchaseUC()">Buy 1000 UC</button>
+        <p id="message"></p>
+    </div>
+    
+    <div class="container">
+        <h2>PUBG Subscription - 280 PKR</h2>
+        <p>Subscribe to get monthly rewards and extra UC benefits.</p>
+        <button class="btn" onclick="subscribePUBG()">Subscribe Now</button>
+        <p id="subscriptionMessage"></p>
+    </div>
+
+    <div class="container">
+        <h2>Payment Options</h2>
+        <p>Transfer the payment via Easypaisa or JazzCash.</p>
+        <p><strong>Easypaisa:</strong> 03XXXXXXXXX</p>
+        <p><strong>JazzCash:</strong> 03XXXXXXXXX</p>
+        <p>After making the payment, enter the transaction ID and your Easypaisa/JazzCash number below:</p>
+        <input type="text" id="transactionID" class="input-field" placeholder="Enter Transaction ID" required>
+        <input type="text" id="paymentNumber" class="input-field" placeholder="Enter Easypaisa/JazzCash Number" required>
+        <button class="btn" onclick="confirmPayment()">Confirm Payment</button>
+        <p id="paymentMessage"></p>
+    </div>
+    
+    <script>
+        function loginUser() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username && password) {
+                document.getElementById("loginMessage").innerText = "Login successful! Welcome, " + username + "!";
+            } else {
+                document.getElementById("loginMessage").innerText = "Please enter valid credentials.";
+            }
+        }
+        function purchaseUC() {
+            let uid = document.getElementById("pubgUID").value;
+            if (uid) {
+                document.getElementById("message").innerText = "Purchase successful! 1000 UC added to your account for 5000 PKR.";
+            } else {
+                alert("Please enter your PUBG UID before purchasing.");
+            }
+        }
+        function subscribePUBG() {
+            let uid = document.getElementById("pubgUID").value;
+            if (uid) {
+                document.getElementById("subscriptionMessage").innerText = "Subscription activated for 280 PKR! Enjoy your exclusive rewards.";
+            } else {
+                alert("Please enter your PUBG UID before subscribing.");
+            }
+        }
+        function buyRoyalPass() {
+            let uid = document.getElementById("pubgUID").value;
+            if (uid) {
+                document.getElementById("royalPassMessage").innerText = "Royal Pass purchased for 2500 PKR! Enjoy your exclusive rewards.";
+            } else {
+                alert("Please enter your PUBG UID before purchasing the Royal Pass.");
+            }
+        }
+        function confirmPayment() {
+            document.getElementById("paymentMessage").innerText = "Payment confirmed! Your purchase will be processed soon.";
+        }
+    </script>
+</body>
+</html>
